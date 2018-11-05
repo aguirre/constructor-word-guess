@@ -1,0 +1,14 @@
+{
+  "name": "constructor-word-guess",
+  "version": "1.0.0",
+  "description": "Node Word Guess",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Aguirre",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^6.2.0"
+  }
+}
