@@ -86,12 +86,10 @@ function game() {
             console.log("\nAlready Guessed or Nothing Entered\n");
             game();
           } else {
-            // Checks if guess is correct
             var wordCheckArray = [];
 
             computerWord.userGuess(input.userinput);
 
-            // Checks if guess is correct
             computerWord.objArray.forEach(wordCheck);
             if (wordCheckArray.join("") === wordComplete.join("")) {
               console.log("\nIncorrect\n");
@@ -106,17 +104,13 @@ function game() {
 
             computerWord.log();
 
-            // Print guesses left
             console.log("Guesses Left: " + guessesLeft + "\n");
 
-            // Print letters guessed already
             console.log(
               "Letters Guessed: " + incorrectLetters.join(" ") + "\n"
             );
 
-            // Guesses left
             if (guessesLeft > 0) {
-              // Call function
               game();
             } else {
               console.log("Sorry, you lose!\n");
