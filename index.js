@@ -35,3 +35,51 @@ var nbaTeams = [
   "jazz",
   "wizards"
 ];
+
+var teamIndex = Math.floor(Math.random() * nbaTeams.length);
+var randomTeam = nbaTeams[teamIndex];
+
+computerWord = new Word(randomTeam);
+
+var requireNewWord = false;
+
+var incorrectLetters = [];
+var correctLetters = [];
+
+var guessesLeft = 10;
+
+function game() {
+  if (requireNewWord) {
+    var teamIndex = Math.floor(Math.random() * nbaTeams.length);
+    var randomTeam = nbaTeams[teamIndex];
+
+    computerWord = new Word(randomTeam);
+
+    requireNewWord = false;
+  }
+}
+
+function restartGame() {
+  inquirer
+    .prompt([
+      {
+        type: "list",
+        message: "Would you like to:",
+        choices: ["Play Again", "Exit"],
+        name: "restart"
+      }
+    ])
+    .then(function(input) {
+      if (input.restart === "Play Again") {
+        requireNewWord = true;
+        incorrectLetters = [];
+        correctLetters = [];
+        guessesLeft = 10;
+        game();
+      } else {
+        return;
+      }
+    });
+}
+
+game();
